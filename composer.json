@@ -1,0 +1,11 @@
+{
+    "require": {
+        "twbs/bootstrap": "5.0.2"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Mechanix\\": "src/"
+        }
+    }
+}

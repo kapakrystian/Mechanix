@@ -4,10 +4,11 @@ name: mechanix
 services:
   web:
     build:
-      context: .
-      dockerfile: nginx/nginx.dockerfile
+      context: ./nginx
+      dockerfile: nginx.dockerfile
     ports:
       - 8080:80
+      - 9003:9003
     volumes:
       - .:/usr/share/nginx/html
     depends_on:
@@ -25,14 +26,19 @@ services:
     volumes:
       - mechanix_db:/var/lib/mysql
   php:
-    image: php:8.3-fpm
+    build:
+      context: ./php
+      dockerfile: php.dockerfile
     volumes:
       - .:/usr/share/nginx/html
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   composer:
     image: composer:2
     volumes:
       - .:/usr/share/nginx/html
     working_dir: /usr/share/nginx/html
+    command: install
 
 volumes:
   mechanix_db:
