@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mechanix;
 
 require_once 'vendor/autoload.php';
+require_once 'templates/layout.php';
 
 // use Mechanix\Router;
 
@@ -12,10 +13,9 @@ require_once 'vendor/autoload.php';
 // Router::handle('GET', '/contact', 'templates/contact.php');
 // Router::handle('GET', '/pricing', 'templates/pricing.php');
 
-$uri = $_SERVER['REQUEST_URI'];
-print_r($uri);
-
-xdebug_info();
+// $uri = $_SERVER['REQUEST_URI'];
+// print_r($uri);
+// print_r($_GET);
 
 // if (isset($_SERVER)) {
 //     $uri = $_SERVER;
