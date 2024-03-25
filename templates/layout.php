@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="description" content="Web application to management a car service." />
+    <meta name="author" content="Krystian Kapa" />
     <title>Mechanix</title>
     <link href="public/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -44,7 +44,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Menu</div>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="home">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-house"></i></div>
                             Home
                         </a>
@@ -55,8 +55,8 @@
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">Dodaj klienta</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Lista klientów</a>
+                                <a class="nav-link" href="addClient">Dodaj klienta</a>
+                                <a class="nav-link" href="clientList">Lista klientów</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts">
@@ -66,8 +66,8 @@
                         </a>
                         <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">Dodaj usługę</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Lista usług</a>
+                                <a class="nav-link" href="addService">Dodaj usługę</a>
+                                <a class="nav-link" href="serviceList">Lista usług</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts">
@@ -77,8 +77,8 @@
                         </a>
                         <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">Dodaj usługę</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Lista usług</a>
+                                <a class="nav-link" href="addRepair">Dodaj naprawę</a>
+                                <a class="nav-link" href="repairList">Lista napraw</a>
                             </nav>
                         </div>
                         <a class="nav-link" href="tables.html">
@@ -99,7 +99,8 @@
             </nav>
         </div>
         <!-- Content-->
-        <div id="layoutSidenav_content" style="background-image: url('public/img/background.png'); background-size: cover;">
+        <div id="layoutSidenav_content">
+            <?php include_once $viewName . '.php'; ?>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

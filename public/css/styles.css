@@ -10902,7 +10902,8 @@ body {
     transform: translateX(0);
   }
   #layoutSidenav #layoutSidenav_content {
-    margin-left: 0;
+    margin-left: 1rem;
+    padding-top: 1rem;
     transition: margin 0.15s ease-in-out;
   }
   .sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav {
