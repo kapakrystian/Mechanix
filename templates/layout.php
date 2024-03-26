@@ -15,7 +15,7 @@
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-success">
         <!-- Logo -->
-        <a class="navbar-brand ps-2 ms-1" href="index.html"><img src="public/img/logo.svg" alt=""></a>
+        <a class="navbar-brand ps-2 ms-1" href="home"><img src="public/img/logo.svg" alt=""></a>
         <!-- Sidebar Toggle + Navbar Button-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
@@ -27,12 +27,12 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Mój profil</a></li>
-                    <li><a class="dropdown-item" href="#!">Logi</a></li>
+                    <li><a class="dropdown-item" href="myProfile">Mój profil</a></li>
+                    <li><a class="dropdown-item" href="logs">Logi</a></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="#!">Wyloguj</a></li>
+                    <li><a class="dropdown-item" href="logout">Wyloguj</a></li>
                 </ul>
             </li>
         </ul>
@@ -81,13 +81,13 @@
                                 <a class="nav-link" href="repairList">Lista napraw</a>
                             </nav>
                         </div>
-                        <a class="nav-link" href="tables.html">
+                        <a class="nav-link" href="payments">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-dollar-sign"></i></div>
                             Płatności
                         </a>
-                        <a class="nav-link" href="tables.html">
+                        <a class="nav-link" href="generator">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-print"></i></div>
-                            Generator
+                            Generator dokumentów
                         </a>
                     </div>
                 </div>
