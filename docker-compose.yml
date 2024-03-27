@@ -39,6 +39,13 @@ services:
       - .:/usr/share/nginx/html
     working_dir: /usr/share/nginx/html
     command: install
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8081:80
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: mechanix123!@#
 
 volumes:
   mechanix_db:

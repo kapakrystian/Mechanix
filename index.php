@@ -5,8 +5,18 @@ declare(strict_types=1);
 namespace Mechanix;
 
 require_once 'vendor/autoload.php';
+$configuration = require_once 'config/config.php';
 
+use Mechanix\Controllers\AbstractController;
+use Mechanix\Exceptions\StorageException;
 use Mechanix\Router;
+
+
+try {
+    AbstractController::initConfiguration($configuration);
+} catch (StorageException $e) {
+    echo 'Problem z aplikacją, proszę spróbować za chwilę.';
+}
 
 $router = new Router();
 $router->addRoute('/home', 'Home', 'index');
