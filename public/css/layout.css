@@ -1,0 +1,61 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    /* Główna sekcja ma minimum pełną wysokość okna */
+}
+
+.main-content {
+    flex-grow: 1;
+    /* Główna zawartość może rozciągać się na całą szerokość */
+    overflow-y: auto;
+    /* Możliwość przewijania zawartości sekcji głównej */
+    min-height: 100vh;
+    padding-top: 3rem;
+}
+
+.alternative-nav {
+    display: flex;
+    flex-direction: column;
+    /* Kolumnowy układ w nawigacji */
+    height: 100%;
+    /* Umożliwia rozciąganie w pionie */
+}
+
+.alternative-nav>div {
+    flex: 1;
+    /* Sprawia, że nawigacja zajmuje całą dostępna wysokość */
+    position: relative;
+    /* Zmiana pozycji w celu lepszego zarządzania */
+}
+
+@media (max-width: 767px) {
+    .alternative-nav {
+        position: fixed;
+        /* Ustawienie nawigacji na stałe przy dolnej krawędzi */
+        bottom: 0;
+        /* Przyklejenie do dołu */
+        left: 0;
+        /* Przyklejenie do lewej */
+        right: 0;
+        /* Przyklejenie do prawej */
+        height: auto;
+        /* Automatyczna wysokość */
+    }
+
+    .alternative-nav>div {
+        height: auto;
+        /* Automatyczna wysokość dla menu */
+    }
+
+    .main-content {
+        margin-bottom: 12%;
+    }
+}
+
