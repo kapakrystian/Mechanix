@@ -1,3 +1,5 @@
+@props(['heading' => 'test'])
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +26,7 @@
 
             <!--LOGO-->
             <div class="flex justify-start text-white">
-                <a href="#" aria-label="Home">
+                <a href="/" aria-label="Home">
                     <span class="text-xl pl-6 font-bold">MECHANIX</span>
                 </a>
             </div>
@@ -43,11 +45,11 @@
                                 </svg></button>
                             <div id="myDropdown"
                                 class="dropdownlist absolute bg-gray-800 text-white right-0 mt-3 p-3 overflow-auto z-30 invisible">
-                                <a href="#"
+                                <a href="/profile"
                                     class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i
                                         class="fa fa-user fa-fw"></i> Profile</a>
                                 <div class="border border-gray-800"></div>
-                                <a href="#"
+                                <a href="/logout"
                                     class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i
                                         class="fas fa-sign-out-alt fa-fw"></i> Log Out</a>
                             </div>
@@ -84,11 +86,11 @@
                 <div id="main" class="main-content bg-gray-100">
 
                     <!--HEADING-->
-                    <x-heading>Heading</x-heading>
+                    <x-heading>{{ $heading }}</x-heading>
 
                     <!--MAIN CONTENT-->
                     <div class="flex flex-wrap py-4 px-7">
-                        {{ $slot }}
+                        @yield('slot')
                     </div>
                 </div>
             </section>
