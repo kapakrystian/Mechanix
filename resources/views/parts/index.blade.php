@@ -1,3 +1,5 @@
-<x-layout>
+@extends('components.layout')
+
+@section('slot')
     <p>PARTS</p>
-</x-layout>
+@endsection

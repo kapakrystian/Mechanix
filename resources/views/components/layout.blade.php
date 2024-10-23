@@ -25,38 +25,55 @@
             class="bg-gray-800 pt-2 md:pt-1 pb-1 px-1 mt-0 fixed w-full z-20 top-0 flex justify-between items-center">
 
             <!--LOGO-->
-            <div class="flex justify-start text-white">
+            <div class="flex justify-start text-white pt-1">
                 <a href="/" aria-label="Home">
                     <span class="text-xl pl-6 font-bold">MECHANIX</span>
                 </a>
             </div>
 
+            @guest
+                <div class="flex justify-end pt-3 px-1 gap-x-1">
+                    <x-navbar-link href="/login">Zaloguj</x-navbar-link>
+                    <x-navbar-link href="/register">Zarejestruj</x-navbar-link>
+                </div>
+            @endguest
+
             <!--USER MENU DROPDOWN-->
-            <div class="flex py-2">
-                <ul class="flex flex-1 md:flex-none">
-                    <li class="flex-1 md:flex-none md:mr-3">
-                        <div class="relative inline-block">
-                            <button onclick="toggleDD('myDropdown')" class="drop-button text-white py-2 px-2"> <span
-                                    class="pr-2"><i class="em em-robot_face"></i></span> Hi, User <svg
-                                    class="h-3 fill-current inline" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                                </svg></button>
-                            <div id="myDropdown"
-                                class="dropdownlist absolute bg-gray-800 text-white right-0 mt-3 p-3 overflow-auto z-30 invisible">
-                                <a href="/profile"
-                                    class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i
-                                        class="fa fa-user fa-fw"></i> Profile</a>
-                                <div class="border border-gray-800"></div>
-                                <a href="/logout"
-                                    class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i
-                                        class="fas fa-sign-out-alt fa-fw"></i> Log Out</a>
+            @auth
+                <div class="flex py-2">
+                    <ul class="flex flex-1 md:flex-none">
+                        <li class="flex-1 md:flex-none md:mr-3">
+                            <div class="relative inline-block">
+                                <button onclick="toggleDD('myDropdown')" class="drop-button text-white py-2 px-2"> <span
+                                        class="pr-2"><i class="em em-robot_face"></i></span> Hi, User <svg
+                                        class="h-3 fill-current inline" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                    </svg></button>
+                                <div id="myDropdown"
+                                    class="dropdownlist absolute bg-gray-800 text-white right-0 mt-3 p-3 overflow-auto z-30 invisible">
+
+                                    <!--PROFILE-->
+                                    <a href="/profile"
+                                        class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i
+                                            class="fa fa-user fa-fw"></i> Profil</a>
+                                    <div class="border border-gray-800"></div>
+
+                                    <!--LOGOUT-->
+                                    <a href="/logout"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                        class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i
+                                            class="fas fa-sign-out-alt fa-fw"></i> Wyloguj</a>
+                                    <form id="logout-form" action="/logout" method="POST" class="hidden">
+                                        @csrf
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                        </li>
+                    </ul>
+                </div>
+            @endauth
 
         </nav>
     </header>
@@ -64,22 +81,24 @@
     <main>
         <!-- SIDE MENU-->
         <div class="flex flex-col md:flex-row w-full min-h-screen">
-            <nav aria-label="alternative nav" class="alternative-nav">
-                <div class="bg-gray-800 shadow-xl md:relative h-full z-10 w-full md:w-48 content-center">
+            @auth
+                <nav aria-label="alternative nav" class="alternative-nav">
+                    <div class="bg-gray-800 shadow-xl md:relative h-full z-10 w-full md:w-48 content-center">
 
-                    <div
-                        class="md:mt-12 md:w-48 md:fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
-                        <ul
-                            class="list-reset flex flex-row md:flex-col pt-3 md:py-3 px-1 md:px-2 text-center md:text-left mt-2">
-                            <x-sidebar-link href="/clients" :active="request()->is('clients')">Klienci</x-sidebar-link>
-                            <x-sidebar-link href="/services" :active="request()->is('services')">Usługi</x-sidebar-link>
-                            <x-sidebar-link href="/parts" :active="request()->is('parts')">Części</x-sidebar-link>
-                            <x-sidebar-link href="/payments" :active="request()->is('payments')">Płatności</x-sidebar-link>
-                        </ul>
+                        <div
+                            class="md:mt-12 md:w-48 md:fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
+                            <ul
+                                class="list-reset flex flex-row md:flex-col pt-3 md:py-3 px-1 md:px-2 text-center md:text-left mt-2">
+                                <x-sidebar-link href="/clients" :active="request()->is('clients')">Klienci</x-sidebar-link>
+                                <x-sidebar-link href="/services" :active="request()->is('services')">Usługi</x-sidebar-link>
+                                <x-sidebar-link href="/parts" :active="request()->is('parts')">Części</x-sidebar-link>
+                                <x-sidebar-link href="/payments" :active="request()->is('payments')">Płatności</x-sidebar-link>
+                            </ul>
+                        </div>
+
                     </div>
-
-                </div>
-            </nav>
+                </nav>
+            @endauth
 
             <!--MAIN SECTION-->
             <section class="w-full">

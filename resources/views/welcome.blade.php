@@ -1,3 +1,7 @@
-<x-layout>
-    <p>Welcome in Mechanix!</p>
-</x-layout>
+@extends('components.layout')
+
+@section('slot')
+    <div>
+        @dump(session()->all())
+    </div>
+@endsection
