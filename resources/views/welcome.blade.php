@@ -2,6 +2,6 @@
 
 @section('slot')
     <div>
-        @dump(session()->all())
+        <p>Welcome in Mechanix</p>
     </div>
 @endsection
