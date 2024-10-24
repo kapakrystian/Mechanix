@@ -17,4 +17,11 @@
             </a>
         </div>
     @endforeach
+
+    <!--LOADING ADD NEW CLIENT MODAL FORM-->
+    @include('clients.create')
+
 @endsection
+
+<!--MODAL SCRIPTS-->
+<script src="{{ asset('js/scripts/addClientModal.js') }}"></script>
