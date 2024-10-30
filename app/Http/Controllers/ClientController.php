@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreClientRequest;
-use App\Http\Requests\UpdateClientRequest;
 use App\Models\Client;
+use Illuminate\Pagination\Paginator;
 
 class ClientController extends Controller
 {
@@ -13,12 +12,13 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::all();
+        $clients = Client::all()->toQuery()->simplePaginate(perPage: 12);
 
         return view('clients.index', [
             'heading' => 'Klienci',
             'clients' => $clients,
-            'addClientButton' => true
+            'addClientButton' => true,
+            'searchBar' => true
         ]);
     }
 

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\SearchController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
@@ -21,6 +22,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/payments', function () {
         return view('payments.index');
     });
+
+    Route::get('/search', [SearchController::class, 'searchClient']);
 
     Route::post('/logout', [SessionController::class, 'destroy']);
 

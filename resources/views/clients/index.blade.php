@@ -1,6 +1,18 @@
 @extends('components.layout')
 
 @section('slot')
+    <!-- CONDITION FOR DISPLAYING BACK BUTTON -->
+    @if (isset($backButton) && $backButton === true)
+        <div class="w-full mb-4">
+            <a href="/clients" class="underline flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H3m0 0l9-9m-9 9l9 9" />
+                </svg>
+                <span>Powrót</span>
+            </a>
+        </div>
+    @endif
     @foreach ($clients as $client)
         <div
             class="w-full max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-2">
@@ -18,9 +30,13 @@
         </div>
     @endforeach
 
+    <!--PAGINATION-->
+    <div class="pagination">
+        {{ $clients->links() }}
+    </div>
+
     <!--LOADING ADD NEW CLIENT MODAL FORM-->
     @include('clients.create')
-
 @endsection
 
 <!--MODAL SCRIPTS-->

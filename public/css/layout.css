@@ -2,6 +2,7 @@ html,
 body {
     height: 100%;
     margin: 0;
+    min-width: 525px;
 }
 
 main {
@@ -35,6 +36,13 @@ main {
     /* Zmiana pozycji w celu lepszego zarządzania */
 }
 
+.pagination {
+    position: sticky;
+    width: 97.5%;
+    bottom: 0;
+    padding-top: 1%;
+}
+
 @media (max-width: 767px) {
     .alternative-nav {
         position: fixed;
@@ -47,6 +55,7 @@ main {
         /* Przyklejenie do prawej */
         height: auto;
         /* Automatyczna wysokość */
+        z-index: 1;
     }
 
     .alternative-nav>div {
@@ -57,5 +66,6 @@ main {
     .main-content {
         margin-bottom: 12%;
     }
+
 }
 

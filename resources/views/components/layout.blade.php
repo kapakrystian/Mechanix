@@ -105,10 +105,11 @@
                 <div id="main" class="main-content bg-gray-100">
 
                     <!--HEADING-->
-                    <x-heading :addClientButton="$addClientButton ?? false">{{ $heading }}</x-heading>
+                    <x-heading :addClientButton="$addClientButton ?? false" :searchBar="$searchBar ?? false">{{ $heading }}
+                    </x-heading>
 
                     <!--MAIN CONTENT-->
-                    <div class="flex flex-wrap py-4 px-7 justify-evenly">
+                    <div class="flex flex-wrap py-4 px-7 justify-evenly" :backButton="$backButton ?? false">
                         @yield('slot')
                     </div>
                 </div>
