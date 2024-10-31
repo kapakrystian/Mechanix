@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Pagination\Paginator;
+use App\Http\Requests\StoreClientRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View as View;
 
 class ClientController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(): View
     {
         $clients = Client::all()->toQuery()->simplePaginate(perPage: 12);
 
@@ -22,20 +22,15 @@ class ClientController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function create(): View
     {
         return view('clients.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreClientRequest $request)
+    public function store(StoreClientRequest $request): RedirectResponse
     {
-        //
+        $client = Client::create($request->validated());
+        return redirect('/clients')->with('success', 'Dodano nowego klienta.');
     }
 
     /**

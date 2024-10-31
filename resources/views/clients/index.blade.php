@@ -13,6 +13,14 @@
             </a>
         </div>
     @endif
+    <!--ADD CLIENT SUCCESS MASSAGE-->
+    @if (session('success'))
+        <div
+            class="w-full mb-3 text-sm text-white-800 rounded-lg bg-green-500 dark:bg-gray-800 dark:text-green-400 text-center">
+            {{ session('success') }}
+        </div>
+    @endif
+    <!--CLIENTS LOADING FROM DATABASE-->
     @foreach ($clients as $client)
         <div
             class="w-full max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-2">

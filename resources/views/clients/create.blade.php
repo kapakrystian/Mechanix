@@ -7,7 +7,7 @@
             <!--MODAL HEADER-->
             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    UTWÓRZ NOWEGO KLIENTA
+                    Tworzenie nowego klienta
                 </h3>
                 <button type="button" onclick="closeModal()"
                     class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900
@@ -22,7 +22,8 @@
             </div>
             <!--MODAL BODY-->
             <div class="p-4 md:p-5">
-                <form class="space-y-5" action="/clients" method="POST">
+                <form class="space-y-5" action="/clients" method="POST" novalidate>
+                    @csrf
                     <div>
                         <label for="first_name"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imię</label>
@@ -30,6 +31,9 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
                             focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                             placeholder="Jan" required />
+                        @error('first_name')
+                            <div class="text-red-800 text-xs">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div>
                         <label for="last_name"
@@ -38,6 +42,9 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
                             focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                             placeholder="Kowalski" required />
+                        @error('last_name')
+                            <div class="text-red-800 text-xs">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div>
                         <label for="email"
@@ -46,18 +53,26 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
                             focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                             placeholder="example@doamin.com" required />
+                        @error('email')
+                            <div class="text-red-800 text-xs">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div>
-                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numer telefonu</label>
+                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numer
+                            telefonu</label>
                         <input type="text" name="phone" id="phone"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
                             focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                             placeholder="123456789" required />
+                        @error('phone')
+                            <div class="text-red-800 text-xs">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div></div>
                     <button type="submit"
                         class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium
-                        rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">DODAJ KLIENTA
+                        rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Dodaj
+                        klienta
                     </button>
                 </form>
             </div>

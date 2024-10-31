@@ -9,7 +9,7 @@ function closeModal() {
 }
 
 // Open modal form after clicking "New Client" button.
-document.querySelector('a[href="/clients/create"]').addEventListener('click', function(event) {
+    document.querySelector('a[href="/clients/create"]').addEventListener('click', function(event) {
     event.preventDefault(); // Prevents the link from working by default
     openModal(); // Calls the modal open function
 });
